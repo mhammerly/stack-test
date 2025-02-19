@@ -1,0 +1,14 @@
+name: test workflows
+
+on: [pull_request]
+
+jobs:
+  exit_with:
+    strategy:
+      matrix:
+        exit_code: [0, 1]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Exit with ${{ matrix.exit_code }}
+        run: exit ${{ matrix.exit_code }}
